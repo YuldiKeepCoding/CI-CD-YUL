@@ -8,8 +8,8 @@ defaults: &defaults
     - image: cimg/python:3.10  # Imagen de Docker predeterminada
 
 # Sección de órbitas
-# orbs:
-#   sonarcloud: sonarsource/sonarcloud@2.0.0 # SonarCloud orb for CircleCI
+orbs:
+  sonarcloud: sonarsource/sonarcloud@2.0.0 # SonarCloud orb for CircleCI
 #  ggshield: gitguardian/ggshield@volatile # GitGuardian orb for CircleCI
 
 # Definición del trabajo calc-build
@@ -77,7 +77,7 @@ jobs:
           command: |
             source env/bin/activate
             pylint app/*.py
-      # - sonarcloud/scan
+      - sonarcloud/scan
 
   calc-docs:
     <<: *defaults
