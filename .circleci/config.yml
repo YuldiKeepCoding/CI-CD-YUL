@@ -115,7 +115,7 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            ddocker build -t calcpy .
+            docker build -t calcpy .
             docker tag calcpy "$DOCKER_USERNAME/calcpy:latest"
             docker push "$DOCKER_USERNAME/calcpy:latest"
 
