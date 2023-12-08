@@ -2,6 +2,7 @@
 Este script define una calculadora simple y muestra un arte ASCII de bienvenida.
 La calculadora tiene operaciones de suma, resta, multiplicación y división.
 """
+
 print('''
 '    ####      ##    ####    ####  #### ###  ####      ##    ######    ####   ######      ##'
 '   ##  ##     ##     ##    ##  ##  ##  ##    ##       ##     ##  ##  ##  ##   ##  #      ##'
@@ -28,9 +29,26 @@ print('''
 |_____________________|
 
 ''')
+
 class Calculadora:
     """
     Clase que implementa una calculadora con operaciones básicas.
+
+    Attributes:
+        None
+
+    Methods:
+        add(num1, num2): Realiza la operación de suma.
+        subtract(num1, num2): Realiza la operación de resta.
+        multiply(num1, num2): Realiza la operación de multiplicación.
+        divide(num1, num2): Realiza la operación de división.
+
+    Example:
+        calc = Calculadora()
+        resultado_suma = calc.add(2, 3)  # Devuelve 5
+        resultado_resta = calc.subtract(5, 2)  # Devuelve 3
+        resultado_multiplicacion = calc.multiply(4, 2)  # Devuelve 8
+        resultado_division = calc.divide(8, 4)  # Devuelve 2.0
     """
 
     def add(self, num1, num2):

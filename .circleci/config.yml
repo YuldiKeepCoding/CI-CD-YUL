@@ -10,7 +10,7 @@ defaults: &defaults
 # Sección de órbitas
 orbs:
   sonarcloud: sonarsource/sonarcloud@2.0.0 # SonarCloud orb for CircleCI
-#  ggshield: gitguardian/ggshield@volatile # GitGuardian orb for CircleCI
+  ggshield: gitguardian/ggshield@volatile # GitGuardian orb for CircleCI
 
 # Definición del trabajo calc-build
 jobs:
@@ -119,13 +119,13 @@ jobs:
             docker tag calcpy "$DOCKER_USERNAME/calcpy:latest"
             docker push "$DOCKER_USERNAME/calcpy:latest"
 
-# Workflows that will be executed
 workflows:
-  # Workflow name
   calc-workflow:
-    # Jobs that will be executed
     jobs:
-      # Job name
+      - ggshield/scan:
+          name: ggshield-scan # best practice is to name each orb job
+          base_revision: << pipeline.git.base_revision >>
+          revision: <<pipeline.git.revision>>
       - calc-build:
           context: SonarCloud
       - calc-test:
