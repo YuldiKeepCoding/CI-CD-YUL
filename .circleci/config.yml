@@ -55,8 +55,8 @@ jobs:
           name: Tests Pytest
           command: |
             source env/bin/activate
-            python3 -m pytest --html=./pytest-report/report.html
-            python3 -m pytest --junitxml=./pytest-report/report.xml
+            python3 -m pytest app/test.py --html=./pytest-report/report.html
+            python3 -m pytest app/test.py --junitxml=./pytest-report/report.xml
       - store_test_results:
           path: pytest-report/report.xml
       - store_artifacts:
