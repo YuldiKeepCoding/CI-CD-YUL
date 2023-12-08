@@ -132,18 +132,10 @@ workflows:
           context: SonarCloud
           requires:
             - calc-build
-          filters:
-            branches:
-              ignore:
-                - main
       - calc-docs:
           context: SonarCloud
           requires:
             - calc-build
-          filters:
-            branches:
-              ignore:
-                - main
       - calc-deploy:
           requires:
             - calc-build
