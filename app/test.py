@@ -1,3 +1,7 @@
+"""
+Este es un módulo de prueba para el proyecto.
+Incluye funciones de prueba para probar la funcionalidad del código.
+"""
 from main import Calculadora
 
 def test_add():

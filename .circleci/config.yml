@@ -66,9 +66,9 @@ jobs:
           name: Tests Coverage
           command: |
             source env/bin/activate
-            python3 -m pytest --cov=app --cov-report=xml:coverage-report/coverage.xml
+            python3 -m pytest app/test.py --cov=app --cov-report=xml:coverage-report/coverage.xml
             coverage run -m pytest app/main.py
-            coverage html -d ./coverage-report app/main.py
+            coverage html -d ./coverage-report app/*.py
       - store_artifacts:
           path: coverage-report
           destination: coverage-report
@@ -76,7 +76,7 @@ jobs:
           name: Lint with Pylint
           command: |
             source env/bin/activate
-            pylint app/main.py
+            pylint app/*.py
       # - sonarcloud/scan
 
   calc-docs:
